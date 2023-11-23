@@ -1,8 +1,5 @@
 ﻿#include <iostream>
 
-template<typename T>
-#include <iostream>
-
 
 template<typename T>
 class List
