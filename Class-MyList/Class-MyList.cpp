@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 
-
 template<typename T>
 class List
 {
@@ -118,6 +117,19 @@ public:
     size_t Size()const
     {
         return elementsCount;
+    }
+
+    void clear() 
+    {
+        while (elementsCount > 0) 
+        {
+            PopFront(); // или PopBack()
+        }
+    }
+
+    ~List()
+    {
+        clear();
     }
 };
 
