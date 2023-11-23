@@ -21,6 +21,19 @@ private:
 
     int elementsCount = 0;
 public:
+    List() = default;
+
+    List(const List<T>& l) //  конструктора копирования 
+    {
+        elementsCount = l.elementsCount;
+
+        for (Node* temp = l.first; temp != nullptr; temp = temp->next)
+        {
+            PushBack(temp->element);
+        }
+
+    }
+     
     void PushBack(const T& elem)
     {
         Node* node = new Node(elem, last, nullptr);
