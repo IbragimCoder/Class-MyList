@@ -108,7 +108,7 @@ public:
             }
 
             delete temp;
-            --elementsCount;
+            elementsCount--;
 
         }
 
