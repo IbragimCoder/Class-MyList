@@ -108,7 +108,7 @@ public:
             }
 
             delete temp;
-            elementsCount--;
+            --elementsCount;
 
         }
 
@@ -127,14 +127,57 @@ public:
         }
     }
 
+    List& operator= (const List& l) 
+    {
+        clear();
+
+        Node* node;
+        for (node = l.first; node != nullptr; node = node->next)
+        {
+            PushBack(node->element); 
+        }
+
+        elementsCount = l.elementsCount; 
+        
+        return *this;
+    }
+
+    const T& Front()const
+    {
+        return first->element;
+    }
+
+
+    bool Empty()const
+    {
+        return first == nullptr;
+    }
+
     ~List()
     {
         clear();
     }
 };
 
+
+
 int main()
 {
+    List<int> l1;
+    List<int> l2;
+    l1.PushBack(1);
+    l1.PushBack(2);
+    l1.PushBack(3);
+    l2.PushBack(4);
+    l2.PushBack(7);
+    l2.PushBack(7);
+    l1 = l2;
+
+    while (!l1.Empty())
+    {
+        std::cout << l1.Front() << std::endl;
+        l1.PopFront();
+    }
 
 
     return 0;
